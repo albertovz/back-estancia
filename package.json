@@ -1,0 +1,20 @@
+{
+  "name": "back-estancia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albertovz/back-estancia.git"
+  },
+  "keywords": [],
+  "author": "Alberto Vázquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albertovz/back-estancia/issues"
+  },
+  "homepage": "https://github.com/albertovz/back-estancia#readme"
+}
