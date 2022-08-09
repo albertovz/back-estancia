@@ -1,0 +1,32 @@
+{
+  "name": "back-estancia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "cross-env NODE_ENV=development nodemon app.js",
+    "start:test": "cross-env NODE_ENV=test nodemon app.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon app.js",
+    "sequelize": "dotenv sequelize"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3",
+    "swagger-ui-express": "^4.5.0"
+  },
+  "engines": {
+    "node": "16.14.0"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19"
+  }
+}
