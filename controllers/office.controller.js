@@ -56,6 +56,11 @@ const office_update = (req, res) => {
       });
 };
 
+//Trabajando en el delete
+const office_delete = (req, res) => {
+
+};
+
 export const officeController = {
     office_list,
     office_create,
