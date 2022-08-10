@@ -56,7 +56,6 @@ const office_update = (req, res) => {
       });
 };
 
-<<<<<<< HEAD
 const office_delete = async function (req, res) {
     let id = req.body.id;
     getOffice.Office
@@ -68,8 +67,6 @@ const office_delete = async function (req, res) {
             res.status(400).send(err);
         })
 }
-=======
->>>>>>> 191a23a (push)
 
 export const officeController = {
     office_list,
