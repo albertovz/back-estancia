@@ -17,7 +17,7 @@ const Office = getData.sequelizeClient.define(
             allowNull: false,
             validate: {
                 notNull: {
-                    msg: "Ingrese el nombre de una oficina",
+                    msg: "Ingrese el nombre de la oficina",
                 },
             }
         }

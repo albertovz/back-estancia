@@ -56,9 +56,21 @@ const office_update = (req, res) => {
       });
 };
 
+const office_delete = async function (req, res) {
+    let id = req.body.id;
+    getOffice.Office
+        .destroy({ where: { id: id } })
+        .then((r) => {
+            res.status(200).json({ message: "Oficina eliminada con éxito" });
+        })
+        .catch((err) => {
+            res.status(400).send(err);
+        })
+}
 
 export const officeController = {
     office_list,
     office_create,
-    office_update
+    office_update,
+    office_delete
 };

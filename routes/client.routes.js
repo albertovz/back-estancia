@@ -11,39 +11,13 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 /**
  * @openapi
  * '/api/client/list':
- *  post:
+ *  get:
  *     tags:
  *     - Client
- *     summary: Listar clientes
- *     requestBody:
- *      required: true
- *      content:
- *        application/json:
- *           schema:
- *            type: object
- *            required:
- *              - id
- *              - name
- *              - lastName
- *              - secondSurname
- *              - catOfficeId 
- *            properties:
- *              id:
- *                type: integer
- *              name:
- *                type: string
- *                default: nombre
- *              lastName:
- *                type: string
- *                default: apellido paterno
- *              secondSurname:
- *                type: string
- *                default: apellido materno
- *              catOfficeId:
- *                type: integer
+ *     summary: Listar Clientes
  *     responses:
  *      200:
- *        description: Create
+ *        description: Get
  *      400:
  *        description: Bad Request
  *      404:
@@ -56,7 +30,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *  post:
  *     tags:
  *     - Client
- *     summary: Crea un cliente
+ *     summary: Crear cliente
  *     requestBody:
  *      required: true
  *      content:
@@ -67,6 +41,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *              - name
  *              - lastName
  *              - secondSurname
+ *              - curp
  *              - catOfficeId
  *            properties:
  *              name:
@@ -74,12 +49,16 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *                default: nombre
  *              lastName:
  *                type: string
- *                default: apellido paterno
+ *                default: apellido_paterno
  *              secondSurname:
  *                type: string
- *                default: apellido materno
+ *                default: apellido_materno
+ *              curp:
+ *                type: string
+ *                default: curp
  *              catOfficeId:
  *                type: integer
+ *                default: 1
  *     responses:
  *      200:
  *        description: Create
@@ -94,8 +73,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  * '/api/client/update':
  *  put:
  *     tags:
- *     - Cliente
- *     summary: Actualizar datos del cliente
+ *     - Client
+ *     summary: Actualizar Cliente
  *     requestBody:
  *      required: true
  *      content:
@@ -107,24 +86,29 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *              - name
  *              - lastName
  *              - secondSurname
+ *              - curp
  *              - catOfficeId
  *            properties:
  *              id:
  *                type: integer
+ *                default: 1
  *              name:
  *                type: string
  *                default: nombre
  *              lastName:
  *                type: string
- *                default: apellido paterno
+ *                default: apellido_paterno
  *              secondSurname:
  *                type: string
- *                default: apellido materno
+ *                default: apellido_materno
+ *              curp:
+ *                type: string
+ *                default: curp
  *              catOfficeId:
  *                type: integer
  *     responses:
  *      200:
- *        description: update
+ *        description: Update
  *      400:
  *        description: Bad Request
  *      404:
@@ -136,8 +120,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  * '/api/client/delete':
  *  delete:
  *     tags:
- *     - Cliente
- *     summary: Eliminar cliente
+ *     - Client
+ *     summary: Eliminar Cliente
  *     requestBody:
  *      required: true
  *      content:
@@ -149,9 +133,10 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *            properties:
  *              id:
  *                type: integer
+ *                default: 1
  *     responses:
  *      200:
- *        description: update
+ *        description: Delete
  *      400:
  *        description: Bad Request
  *      404:

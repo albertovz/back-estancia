@@ -10,28 +10,13 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 /**
  * @openapi
  * '/api/office/list':
- *  post:
+ *  get:
  *     tags:
  *     - Office
- *     summary: Listar oficinas
- *     requestBody:
- *      required: true
- *      content:
- *        application/json:
- *           schema:
- *            type: object
- *            required:
- *              - id
- *              - name
- *            properties:
- *              id:
- *                type: integer
- *              name:
- *                type: string
- *                default: Officina
+ *     summary: Listar Oficinas
  *     responses:
  *      200:
- *        description: Create
+ *        description: Get
  *      400:
  *        description: Bad Request
  *      404:
@@ -44,7 +29,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *  post:
  *     tags:
  *     - Office
- *     summary: Crea una oficina
+ *     summary: Crear Oficina
  *     requestBody:
  *      required: true
  *      content:
@@ -72,7 +57,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *  put:
  *     tags:
  *     - Office
- *     summary: actualizar nombre de oficina
+ *     summary: Actualizar Oficina
  *     requestBody:
  *      required: true
  *      content:
@@ -85,12 +70,41 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *            properties:
  *              id:
  *                type: integer
+ *                default: 1
  *              name:
  *                type: string
  *                default: Oficina
  *     responses:
  *      200:
- *        description: update
+ *        description: Update
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ */
+
+/**
+ * @openapi
+ * '/api/office/delete':
+ *  delete:
+ *     tags:
+ *     - Office
+ *     summary: Eliminar Oficina
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - id
+ *            properties:
+ *              id:
+ *                type: integer
+ *                default: 1
+ *     responses:
+ *      200:
+ *        description: Delete
  *      400:
  *        description: Bad Request
  *      404:
@@ -102,5 +116,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  router.post("/create", (req, res) => officeController.office_create(req, res));
 
  router.put("/update", (req, res) => officeController.office_update(req, res));
+
+ router.delete("/delete", (req, res) => officeController.office_delete(req, res));
 
  export default router;

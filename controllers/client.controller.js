@@ -29,10 +29,11 @@ const client_create = (req, res) => {
             name: req.body.name,
             lastName: req.body.lastName,
             secondSurname: req.body.secondSurname,
+            curp: req.body.curp,
             catOfficeId: req.body.catOfficeId
         },
         {
-            fields: ["name", "lastName", "secondSurname", "catOfficeId"]
+            fields: ["name", "lastName", "secondSurname", "curp", "catOfficeId"]
         }
     )
         .then(() => {
@@ -49,14 +50,15 @@ const client_update = (req, res) => {
     let name = req.body.name;
     let lastName = req.body.lastName;
     let secondSurname = req.body.secondSurname;
+    let curp = req.body.curp;
     let catOfficeId = req.body.catOfficeId;
 
-    let newDatas = { id, name, lastName, secondSurname, catOfficeId };
+    let newDatas = { id, name, lastName, secondSurname, curp, catOfficeId };
     getClient.Client.findOne({ where: { id: id } })
 
         .then((r) => {
             r.update(newDatas);
-            res.send("Cliente actualizada")
+            res.send("Cliente actualizado")
         })
         .catch((err) => {
             res.status(400).send(err);

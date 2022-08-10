@@ -36,6 +36,15 @@ const Client = getData.sequelizeClient.define(
                     msg: "Ingrese el segundo apellido",
                 },
             },
+        },
+        curp: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notNull: {
+                    msg: "Ingrese la curp",
+                }
+            }
         }
     },
     {
