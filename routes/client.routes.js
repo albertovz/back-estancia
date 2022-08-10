@@ -131,10 +131,39 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
  *        description: Not Found
  */
 
+/**
+ * @openapi
+ * '/api/client/delete':
+ *  delete:
+ *     tags:
+ *     - Cliente
+ *     summary: Eliminar cliente
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *           schema:
+ *            type: object
+ *            required:
+ *              - id
+ *            properties:
+ *              id:
+ *                type: integer
+ *     responses:
+ *      200:
+ *        description: update
+ *      400:
+ *        description: Bad Request
+ *      404:
+ *        description: Not Found
+ */
+
  router.get("/list", (req, res) => clientController.client_list(req, res));
 
  router.post("/create", (req, res) => clientController.client_create(req, res));
 
  router.put("/update", (req, res) => clientController.client_update(req, res));
+
+ router.delete("/delete", (req, res) => clientController.client_delete(req, res));
 
  export default router;
